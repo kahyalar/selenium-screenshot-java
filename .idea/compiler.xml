@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SeleniumScreenshot" />
+        <module name="selenium-screenshot-java" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="SeleniumScreenshot" target="1.5" />
+      <module name="selenium-screenshot-java" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

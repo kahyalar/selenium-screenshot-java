@@ -13,9 +13,11 @@ import java.io.IOException;
  * Contact : furkankahyalar@gmail.com
  */
 public class SeleniumScreenshot {
-    private File screenshotLocation, screenshot;
+    private File screenshotLocation;
+    private File screenshot;
     private BufferedImage fullImg;
-    private String fileName, filePath;
+    private String fileName;
+    private String filePath;
     private WebElement ele;
     private WebDriver driver;
 

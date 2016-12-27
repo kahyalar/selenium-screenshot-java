@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SeleniumScreenshot.iml" filepath="$PROJECT_DIR$/SeleniumScreenshot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/selenium-screenshot-java.iml" filepath="$PROJECT_DIR$/selenium-screenshot-java.iml" />
     </modules>
   </component>
 </project>
