@@ -1,10 +1,8 @@
-# selenium-screenshot-java
+# selenium-screenshot-java [![Release](https://jitpack.io/v/kahyalar/selenium-screenshot-java.svg)]
+A tool for taking screenshots with WebElements.
 
 # Installation
-
-![repo](http://i66.tinypic.com/2i9nwqw.png)
-
-![dependency](http://i67.tinypic.com/21d03gz.jpg)
+![installation] (http://i.hizliresim.com/ZMX2pz.png)
 
 
 # TODOs
