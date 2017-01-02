@@ -12,9 +12,9 @@ import java.io.File;
  */
 public class BaseTest{
     WebDriver driver;
-    TakeScreenshot screenshot;
+    SeleniumScreenshot screenshot;
     private String filePath = System.getProperty("user.home")+"/Desktop/";
-    private String testPage = "https://www.n11.com/";
+    private String testPage = "https://www.facebook.com/";
     private String defaultExtension = ".png";
 
 
@@ -36,7 +36,7 @@ public class BaseTest{
         chromeOptions.addArguments("--start-maximized");
         driver = new ChromeDriver(chromeOptions);
         driver.get(testPage);
-        screenshot = new TakeScreenshot(driver);
+        screenshot = new SeleniumScreenshot(driver);
     }
 
     @After

@@ -18,6 +18,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/kahyalar/selenium/TakeScreenShotLite.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/kahyalar/selenium/TakeScreenshot.java">
           <value>
             <set />
@@ -39,6 +44,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/test/java/com/kahyalar/selenium/HomeDirectoryTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/kahyalar/selenium/Test.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/kahyalar/selenium/WebElementScreenshotTest.java">
           <value>
             <set />
           </value>
