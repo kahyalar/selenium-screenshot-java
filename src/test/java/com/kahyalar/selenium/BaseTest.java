@@ -2,9 +2,10 @@ package com.kahyalar.selenium;
 
 import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import java.io.File;
 
 /**
@@ -13,14 +14,13 @@ import java.io.File;
 public class BaseTest{
     WebDriver driver;
     SeleniumScreenshot screenshot;
-    private String filePath = System.getProperty("user.home")+"/Desktop/";
+    RetinaScreenshot retinaScreenshot;
     private String testPage = "https://www.facebook.com/";
-    private String defaultExtension = ".png";
-
-
+    private static final String DEFAULT_FILE_PATH = System.getProperty("user.home")+"/Desktop/";
+    private static final String DEFAULT_EXTENSION = ".png";
 
     public boolean isScreenshotTaken(String fileName){
-        File temp = new File(String.format("%s%s%s",filePath,fileName,defaultExtension));
+        File temp = new File(String.format("%s%s%s",DEFAULT_FILE_PATH,fileName,DEFAULT_EXTENSION));
         if(temp.exists() && !temp.isDirectory()) {
             return true;
         }
@@ -30,13 +30,13 @@ public class BaseTest{
     }
 
     @Before
-    public void warmUpEngine(){
-        System.getProperty("user.home");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--start-maximized");
-        driver = new ChromeDriver(chromeOptions);
-        driver.get(testPage);
+    public void warmUp(){
+        driver = new ChromeDriver();
         screenshot = new SeleniumScreenshot(driver);
+        retinaScreenshot = new RetinaScreenshot(driver);
+        driver.manage().window().setSize(new Dimension(1280, 800));
+        driver.manage().window().setPosition(new Point(0, 0));
+        driver.get(testPage);
     }
 
     @After

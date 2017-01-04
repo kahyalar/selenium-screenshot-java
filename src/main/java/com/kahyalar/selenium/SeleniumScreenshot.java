@@ -1,13 +1,16 @@
 package com.kahyalar.selenium;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.Point;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import static javax.imageio.ImageIO.read;
+import static javax.imageio.ImageIO.write;
 import static org.apache.commons.io.FileUtils.*;
 
 /**
@@ -16,14 +19,14 @@ import static org.apache.commons.io.FileUtils.*;
  */
 
 public class SeleniumScreenshot {
-    private File screenshotLocation;
-    private File screenshot;
-    private BufferedImage fullImg;
-    private String fileName,filePath;
-    private String defaultFileName = "screenshot";
-    private String defaultFilePath = System.getProperty("user.home")+"/Desktop/";
-    private WebElement element;
-    private WebDriver driver;
+    protected File screenshot;
+    protected File screenshotLocation;
+    protected BufferedImage fullSizeImage;
+    protected String fileName,filePath;
+    protected String defaultFileName = "screenshot";
+    protected String defaultFilePath = System.getProperty("user.home")+"/Desktop/";
+    protected WebElement element;
+    protected WebDriver driver;
 
     public SeleniumScreenshot(WebDriver driver){
         this.driver = driver;
@@ -44,26 +47,27 @@ public class SeleniumScreenshot {
         }
     }
 
-    private void takeFullSizeScreenShot(String fileName, String filePath) throws IOException{
+    public void takeFullSizeScreenShot(String fileName, String filePath) throws IOException{
         this.fileName = fileName;
         this.filePath = filePath;
         checkNullFields();
         screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        fullImg = read(screenshot);
+        fullSizeImage = read(screenshot);
+        write(fullSizeImage, "png", screenshotLocation);
     }
 
-    private void processElement(WebElement element) throws IOException{
+    protected void processElement(String fileName, String filePath, WebElement element) throws IOException{
+        takeFullSizeScreenShot(fileName, filePath);
         this.element = element;
-        Point point = element.getLocation();
+        Point point = new Point(element.getLocation().getX(), element.getLocation().getY());
         int eleWidth = element.getSize().getWidth();
         int eleHeight = element.getSize().getHeight();
-        BufferedImage eleScreenshot= fullImg.getSubimage(point.getX(), point.getY(), eleWidth, eleHeight);
-        ImageIO.write(eleScreenshot, "png", screenshot);
+        BufferedImage elementScreenshot= fullSizeImage.getSubimage(point.getX(), point.getY(), eleWidth, eleHeight);
+        write(elementScreenshot, "png", screenshot);
     }
 
     public void getScreenshot(String fileName, String filePath, WebElement element) throws IOException {
-        takeFullSizeScreenShot(fileName, filePath);
-        processElement(element);
+        processElement(fileName, filePath, element);
         copyFile(screenshot, screenshotLocation);
     }
 }

@@ -1,6 +1,5 @@
 package com.kahyalar.selenium;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -13,11 +12,13 @@ import static org.junit.Assert.assertTrue;
  */
 public class Test extends BaseTest{
     @org.junit.Test
-    public void test() throws IOException {
-        WebElement googleLogo = driver.findElement(By.className("lfloat _ohe"));
-        screenshot.getScreenshot("merhaba2", null, googleLogo);
-
-        assertTrue("Merhaba has to be saved!", isScreenshotTaken("merhaba"));
+    public void fullScreenScreenshot() throws IOException {
+        screenshot.takeFullSizeScreenShot(null, null);
     }
 
+    @org.junit.Test
+    public void webElementScreenshot() throws IOException {
+        WebElement element = driver.findElement(By.xpath("//img[1]"));
+        retinaScreenshot.getScreenshot("element", null, element);
+    }
 }
