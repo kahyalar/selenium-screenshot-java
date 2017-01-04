@@ -20,5 +20,7 @@ public class Test extends BaseTest{
     public void webElementScreenshot() throws IOException {
         WebElement element = driver.findElement(By.xpath("//img[1]"));
         retinaScreenshot.getScreenshot("element", null, element);
+
+        assertTrue("element.png is saved.", isScreenshotTaken("element"));
     }
 }

@@ -10,8 +10,8 @@
     <packaging>jar</packaging>
 
     <name>Selenium Screenshot</name>
-    <description>Unofficial little class for taking screenshots with Selenium WebDriver</description>
-    <url>http://www.seleniumhq.org/</url>
+    <description>A little tool for taking screenshots with Selenium WebDriver</description>
+    <url>https://www.github.com/kahyalar/selenium-screenshot-java/</url>
     <licenses>
         <license>
             <name>The MIT License (MIT)</name>
@@ -19,13 +19,6 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-    <distributionManagement>
-        <repository>
-            <id>selenium-screenshot-java</id>
-            <name>Selenium Screenshot</name>
-            <url>file://C:\Users\Furkan Kahyalar\IdeaProjects\SeleniumScreenshot</url>
-        </repository>
-    </distributionManagement>
     <build>
         <pluginManagement>
             <plugins>

@@ -1,13 +1,11 @@
 package com.kahyalar.selenium;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.*;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.File;
-
 /**
  * Created by kahyalar on 01/01/2017.
  */

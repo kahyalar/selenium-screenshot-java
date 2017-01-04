@@ -3,8 +3,7 @@ package com.kahyalar.selenium;
 import org.openqa.selenium.*;
 import org.openqa.selenium.Point;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -22,8 +21,10 @@ public class SeleniumScreenshot {
     protected File screenshot;
     protected File screenshotLocation;
     protected BufferedImage fullSizeImage;
-    protected String fileName,filePath;
+    protected String fileName;
+    protected String filePath;
     protected String defaultFileName = "screenshot";
+    protected static final String FORMAT_PATTERN = "%s%s.png";
     protected String defaultFilePath = System.getProperty("user.home")+"/Desktop/";
     protected WebElement element;
     protected WebDriver driver;
@@ -34,16 +35,16 @@ public class SeleniumScreenshot {
 
     private void checkNullFields(){
         if(fileName == null && filePath == null){
-            screenshotLocation = new File(java.lang.String.format("%s%s.png",defaultFilePath, defaultFileName));
+            screenshotLocation = new File(java.lang.String.format(FORMAT_PATTERN, defaultFilePath, defaultFileName));
         }
         else if(fileName == null) {
-            screenshotLocation = new File(java.lang.String.format("%s%s.png",filePath, defaultFileName));
+            screenshotLocation = new File(java.lang.String.format(FORMAT_PATTERN, filePath, defaultFileName));
         }
         else if(filePath == null){
-            screenshotLocation = new File(String.format("%s%s.png",defaultFilePath,fileName));
+            screenshotLocation = new File(String.format(FORMAT_PATTERN, defaultFilePath, fileName));
         }
         else {
-            screenshotLocation = new File(java.lang.String.format("%s%s.png",filePath,fileName));
+            screenshotLocation = new File(java.lang.String.format(FORMAT_PATTERN, filePath, fileName));
         }
     }
 
